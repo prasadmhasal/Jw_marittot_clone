@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+   {% block title %} <title>Document</title> {% endblock %}
+<style>
+    /* Hide the scrollbar for all browsers */
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* Show the scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar , .scroll::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb , .scroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-track , .scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+   </style>
+   
+</head>
+<body>
+    <!-- <nav class="navbar navbar-light shadow border" >
+        <div class="container-fluid">
+          <a class="navbar-brand offset-1"><img src="{% static 'img/pas.jpg' %}" height="60px" width="100%" alt="" srcset="" style=" align-items: center;"></a>
+          <form class="d-flex shadow border  ">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav> -->
+      <nav class="navbar navbar-light shadow border">
+        <div class="container-fluid">
+            <a class="navbar-brand "><img src="{% static 'img/pas.jpg' %}" height="60px" width="100%" alt="" srcset="" style="align-items: center;"></a>
+            <div class="">  <!-- Center content horizontally -->
+                <form class="d-flex ">
+                    <a class="navbar-brand">Login</a>
+                    <a class="navbar-brand">Sing Up</a>
+                </form>
+            </div>
+            
+        </div>
+    </nav>
+    
+
+
+<!-- side nav test  -->
+<div class="container-fluid vh-100 overflow-hidden">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <a href="{%  url 'dashbord' %}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                  <span class="fs-5 d-none d-sm-inline" style="color: black; ">Menu</span>
+                  <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+              </a>
+                <li class="nav-item">
+                    <a href="{%  url 'userhome' %}" class="nav-link align-middle px-0">
+                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-dark">User View</span>
+                    </a>
+                </li>
+                  <li class="nav-item">
+                      <a href="{%  url 'dashbord' %}" class="nav-link align-middle px-0">
+                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-dark">Home</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-speedometer3"></i> <span class="ms-1 d-none d-sm-inline text-dark">Add Aroduct</span> <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="dark" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                          </svg></span> </a>
+                      <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                          <li class="w-100">
+                              <a href="{% url 'roomadd' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Room Add</span> </a>
+                          </li>
+                          <li>
+                              <a href="{% url 'diningadd' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Dining Add</span> </a>
+                          </li>
+                          <li>
+                            <a href="{% url 'roomoffer' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Room Offer Add</span> </a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-dark">Orders</span></a>
+                  </li>
+                  <!-- <li>
+                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-dark">Bootstrap</span></a>
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                      <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                          <li class="w-100">
+                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Item</span> 1</a>
+                          </li>
+                          <li>
+                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Item</span> 2</a>
+                          </li>
+                      </ul>
+                  </li> -->
+                  <li>
+                      <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-dark">Products</span><span class="p-2"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="dark" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                          </svg></span></a>
+                          <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                          <li class="w-100">
+                              <a href="{% url 'roomlist' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Rooms List</span> </a>
+                          </li>
+                          <li>
+                              <a href="{% url 'productlist' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Dining List</span> </a>
+                          </li>
+                          <li>
+                            <a href="{% url 'offerlist' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">Offer List</span> </a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-dark">Customers</span> </a>
+                  </li>
+              </ul>
+              <hr>
+              <div class="dropdown pb-4">
+                  <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="{% static 'img/jw.png' %}" alt="hugenerd" width="50" height="50" class="rounded-circle">
+                      <span class="d-none d-sm-inline mx-1 text-dark">Admin</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                      <li><a class="dropdown-item" href="#">New project...</a></li>
+                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li>
+                          <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item " href="#">Sign out</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-10 vh-100 overflow-auto scroll">
+        {% block content %}
+
+
+        {% endblock %}
+      </div>
+  </div>
+</div>
+
+     <!-- sidebar end  -->
+
+
+     <!-- staticts chart  -->
+     
+     <!-- end static  -->
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+  var ctx = $("#chart-line");
+  var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+  labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+  datasets: [{
+  data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+  label: "Customer",
+  borderColor: "#458af7",
+  backgroundColor: '#458af7',
+  fill: false
+  }, {
+  data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
+  label: "visit",
+  borderColor: "#8e5ea2",
+  fill: true,
+  backgroundColor: '#8e5ea2'
+  }, {
+  data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+  label: "booking",
+  borderColor: "#3cba9f",
+  fill: false,
+  backgroundColor: '#3cba9f'
+  }]
+  },
+  options: {
+  title: {
+  display: true,
+  text: 'World population per region (in millions)'
+  }
+  }
+  });
+  });
+    </script>
+
+
+</body>
+</html>

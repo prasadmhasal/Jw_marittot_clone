@@ -1,0 +1,190 @@
+{% extends "user/navbar.html" %}
+
+{% block title %} <title>DiningNooking</title>{% endblock %}
+
+{% block content %}
+<style>
+    .myfoot , .mynav{
+        display: none;
+    }
+    .form-field {
+            border: 1px solid gray;
+            transition: border-color 0.3s ease-in-out, border-width 0.3s ease-in-out;
+        }
+        .form-field.clicked {
+            border-color: blue;
+            border-width: 2px;
+        }
+</style>
+{%  if messages %}
+{% for message in messages %}
+  <script>
+     alert ('{{message}}')
+   </script>
+  {% endfor %}
+ {% endif %}
+
+<div class="container-fluid" style="background-image: url(../../static/img/gallery/services2.jpg); background-size: cover; background-position: center; height: 100vh; overflow-y: scroll;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-9" style="background-color: rgb(255, 255, 255);">
+                <img src="../../static/img/jw1.png" class="img-fluid" width="200px" alt="">
+                <div class="card-body" style="background: #0D293F;">
+                    <p class="" style="color: aliceblue; font-size: 17px;">To make a real-time, instantly confirmed reservation at <strong>Romano's</strong> in <strong>JW Marriott</strong> Mumbai Sahar, please complete and submit the following form. Thank you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="position: relative; bottom: 15px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 bg-light p-4">
+                <div class="m-2">
+                    <p style="font-size: 16px; color: rgb(4, 4, 99); text-decoration: underline;">Reservation Information</p>
+                </div>
+                <form action="" method="post" style="margin-bottom: 20px;">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">RESTAURANT</label>
+                            <select class="form-control form-field" name="restaurant" id="restaurant">
+                                <option value="">--Select--</option>
+                                <option value="JW'S CAFE">JW'S CAFE</option>
+                                <option value="Romano's">Romano's</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="booking_time">Time</label>
+                            <select class="form-control form-field" name="booking_time" id="booking_time">
+                            <option value="">--Select Time--</option>
+                            <option value="6:00">6:00 PM</option>
+                            <option value="6:15">6:15 PM</option>
+                            <option value="6:30">6:30 PM</option>
+                            <option value="6:45">6:45 PM</option>
+                            <option value="7:00">7:00 PM</option>
+                            <option value="7:15">7:15 PM</option>
+                            <option value="7:30">7:30 PM</option>
+                            <option value="7:45">7:45 PM</option>
+                            <option value="8:00">8:00 PM</option>
+                            <option value="8:15">8:15 PM</option>
+                            <option value="8:30">8:30 PM</option>
+                            <option value="8:45">8:45 PM</option>
+                            <option value="9:00">9:00 PM</option>
+                            <option value="9:15">9:15 PM</option>
+                            <option value="9:30">9:30 PM</option>
+                            <option value="9:45">9:45 PM</option>
+                            <option value="10:00">10:00 PM</option>
+                            <option value="10:15">10:15 PM</option>
+                            <option value="10:30">10:30 PM</option>
+                            <option value="10:45">10:45 PM</option>
+                            <option value="11:00">11:00 PM</option>
+                            <option value="11:15">11:15 PM</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="">Adult's</label>
+                            <input class="form-control" type="text" name="adult" id="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Date</label>
+                            <input class="form-control form-field" type="date" name="date" id="">
+                        </div>
+                    </div>
+                    {% for i in book %}
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="">CHILDERN</label>
+                            <input class="form-control" type="text" name="children" id="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Pre_booking Amount</label>
+                            <input class="form-control" type="text" name="prebooking" value="{{i.prebooking}}" id="" readonly>
+                        </div>
+                        <!-- <div class="col-md-6 mt-3">
+                            <div class="d-flex justify-content-end">
+                                <a href="#" class="btn btn-primary">
+                                    <button class="btn" style="border-radius: 20px;">Book Now</button>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        <!-- secondform  -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 bg-light p-4">
+                <div class="m-2">
+                    <p style="font-size: 16px; color: rgb(4, 4, 99); text-decoration: underline;">Personal Information</p>
+                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Title</label>
+                            <select class="form-control" name="title" id="">
+                                <option value="">--Select--</option>
+                                <option value="MR.">MR.</option>
+                                <option value="MS.">MS.</option>
+                                <option value="MRS.">MRS.</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="booking_time">First Name.</label>
+                           <input class="form-control" type="text" name="fname">
+
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Last Name</label>
+                            <input class="form-control" type="text" name="lname" id="">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        
+                        <div class="col-md-4">
+                            <label for="">Contact Number</label>
+                            <select class="form-control" name="cnumber" id="">
+                                <option value="">--Select--</option>
+                                <option value="HOME">HOME</option>
+                                <option value="OFFICE">OFFICE</option>
+                                <option value="Mobile">Mobile</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Number</label>
+                            <input class="form-control" type="text" name="number" id="">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Email Address</label>
+                            <input class="form-control" type="email" name="email" id="">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <label for="">Additional Note</label>
+                        <textarea name="message" id="" cols="30" rows="5"></textarea>
+                       
+                        <div class="col-md-6 mt-3">
+                            <div class="d-flex justify-content-between mx-auto">
+                                <a href="{% url 'diningconfirm' cid %}" class="btn btn-primary">
+                                    <button class="btn" style="border-radius: 20px;">Book Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                
+            </div>
+        </div>
+        <!-- end  -->
+
+    </div>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

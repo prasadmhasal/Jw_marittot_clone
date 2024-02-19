@@ -1,0 +1,100 @@
+{% extends "user/navbar.html" %}
+{% block title %} <title>Roombooking</title>{% endblock %}
+
+{% block content %}
+
+<style>
+    .myfoot{
+        display: none;
+    }
+    .nav-tabs .nav-item .nav-link.active {
+    border-top: 3px solid #000; /* Adjust the border color and thickness as needed */
+}
+.nav-item{
+    width: 200px;
+    height: 50px;
+}
+
+</style>
+<div class="container" style="margin-top: 10%;">
+    <div class="row">
+        <div class="col-10">
+            <h1>Select a Room and Rate</h1>
+            <p>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-wheelchair" viewBox="0 0 16 16">
+                        <path d="M12 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m-.663 2.146a1.5 1.5 0 0 0-.47-2.115l-2.5-1.508a1.5 1.5 0 0 0-1.676.086l-2.329 1.75a.866.866 0 0 0 1.051 1.375L7.361 3.37l.922.71-2.038 2.445A4.73 4.73 0 0 0 2.628 7.67l1.064 1.065a3.25 3.25 0 0 1 4.574 4.574l1.064 1.063a4.73 4.73 0 0 0 1.09-3.998l1.043-.292-.187 2.991a.872.872 0 1 0 1.741.098l.206-4.121A1 1 0 0 0 12.224 8h-2.79zM3.023 9.48a3.25 3.25 0 0 0 4.496 4.496l1.077 1.077a4.75 4.75 0 0 1-6.65-6.65z"/>
+                    </svg>
+                </span>
+                You can request an accessible room when reviewing your reservation.
+            </p>
+
+            <div class="shadow border">
+                <ul class="nav nav-tabs" id="myTabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" data-bs-toggle="tab" href="#tab1">Tab 1</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#tab2">Tab 2</a>
+                    </li>
+                  </ul>
+                  
+                  <div class="tab-content">
+                    <div id="tab1" class="tab-pane fade show activer">
+                        <div class="w-100 d-flex justify-content-center">
+                            <div class="card mb-3 mt-3" style="max-width: 100%;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" width="100%" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tab 1 Content</h5>
+                                            <p class="card-text">This is some content for Tab 1.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                    <div id="tab2" class="tab-pane fade">
+                        <div class="w-100 d-flex justify-content-center">
+                            <div class="card mb-3 mt-3" style="max-width: 100%;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" width="100%" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tab 2 Content</h5>
+                                            <p class="card-text">This is some content for Tab 2.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+  $('#myTabs a').click(function (e) {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    // Toggle active class for the clicked tab link
+    $(this).tab('show');
+  });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,154 @@
+{%  extends 'admin/nav.html' %}
+
+{% load static %}
+   
+    
+    <!-- navbar  -->
+    
+    <!-- endnav  -->
+
+    {% block content %}
+<style>
+    /* bar  */
+.flex {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+  .padding1 {
+      padding: 1.5rem
+  }
+}
+
+@media (max-width:767.98px) {
+  .padding1 {
+      padding: 1rem
+  }
+}
+
+/* .padding {
+  padding: 5rem
+} */
+
+.card1 {
+  background: #fff;
+  border-width: 0;
+  border-radius: .25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+  margin-bottom: 1.5rem
+}
+
+.card1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(19, 24, 44, .125);
+  border-radius: .25rem
+}
+
+.card-header1 {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(19, 24, 44, .03);
+  border-bottom: 1px solid rgba(19, 24, 44, .125)
+}
+
+.card-header1:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+card-footer,
+.card-header1 {
+  background-color: transparent;
+  border-color: rgba(160, 175, 185, .15);
+  background-clip: padding-box
+}
+
+</style>
+
+    <div class="container-fluid mt-5">
+        <div class="row" >
+            <div class="col-md-4 col-xl-3  ">
+                <div class="card bg-c-blue order-card">
+                    <div class="card-block ">
+                        <h6 class="m-b-20">Orders Received</h6>
+                        <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Orders Received</h6>
+                        <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
+                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Orders Received</h6>
+                        <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Orders Received</h6>
+                        <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- test -->
+        <div class="page-content page-container container-fluid" id="page-content">
+            <div class="padding1 w-100">
+                <div class="row">
+                    <div class="container-fluid d-flex justify-content-center ">
+                        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 w-100 vh-100 ">
+                            <!-- Adjust col sizes based on your preference -->
+                            <div class="card1">
+                                <div class="card-header card-header1">Customer chart</div>
+                                <div class="card-body" style="height: 420px">
+                                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                        </div>
+                                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                        </div>
+                                    </div> 
+                                    <canvas id="chart-line" class="chartjs-render-monitor"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {%  endblock %}
+
+
+
+
+   
+
+

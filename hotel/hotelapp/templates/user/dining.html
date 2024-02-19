@@ -1,0 +1,135 @@
+{% extends "user/navbar.html" %}
+
+{% block title %} <title>Dining</title> {% endblock %}
+
+{% block content  %}
+
+<style>
+    .rotate {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+    
+</style>
+<div class="container-fluid p-0 overflow-hidden">
+    <div class="row">
+        <div class="col-lg-12 ">
+            <img src="../../static/img/dining.jpg" class="img-fluid" alt="" srcset="">
+        </div>
+    </div>
+</div>
+
+<!-- description  -->
+<div class="container d-flex justify-content-center align-items-center ">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class=" mt-5 ">
+                <img src="../../static/img/JW-Marquis.jpg" alt="" srcset="" width="150" height="80">
+            </div>
+            <div class="text-center mt-3">
+                <p style="color: rgba(146, 146, 146, 0.918); font-weight: 500;">DINING JW MARRIOTT MUMBAI SAHAR</p>
+            </div>
+            <div class="text-center mt-4 ">
+              <h2 style=" font-weight: 400;">ENJOY FOOD AND DRINKS OFFERED AT JW <br> MARRIOTT MUMBAI SAHAR  </h2>
+          </div>
+          <div class=" t-accent-color text-center horizontal-separator mt-4 mb-4 mx-auto " style="border-bottom: 1px solid rgba(165, 42, 42, 0.664); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+          <div class="text-center mt-3">
+            <p style="color: rgba(146, 146, 146, 0.918); font-weight: 500;">AT THIS HOTEL</p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- card dining  -->
+
+<div class="container">
+    {% for i in dining %}
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="card justify-content-center d-flex shadow border">
+                <div class="mb-0" style="margin-left: 30px; margin-top: 25px; font-size: larger;">
+                  {{i.dining}}
+                </div>
+                <div class="" style="margin-left: 30px; margin-top: 18px;">
+                    {{i.dtype}}
+                  </div>
+                <div class="card-body">
+                  <blockquote class="blockquote" style="margin-left: 10px; ">
+                    <p style="font-size: 15px;">{{i.descripation}}</p>
+                  </blockquote>
+                  <div class=" w-100" style="margin-left: 10px; ">
+                    <div class="d-flex gap-3 w-100">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                              </svg>
+                            {{i.day}}
+                            
+                        </div>
+                        <div>
+                            {{i.dtime  }}  -  {{i.ntime}}
+                        </div>
+                        
+                    </div>
+                    <!-- second body  -->
+                <!-- Content to toggle -->
+               
+                <!-- Your content here -->
+                <div class="card-body ">
+                    <!-- Content -->
+                    <div class="" >
+                        <p><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                              </svg></span>
+                            +91{{i.number}}
+                        </p>
+                        <div class=" t-accent-color text-center horizontal-separator  w-25" style="border-bottom: 1px solid rgba(165, 42, 42, 0.349); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+                    </div>
+                    <div class="" >
+                        <p><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-standing-dress" viewBox="0 0 16 16">
+                            <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m-.5 12.25V12h1v3.25a.75.75 0 0 0 1.5 0V12h1l-1-5v-.215a.285.285 0 0 1 .56-.078l.793 2.777a.711.711 0 1 0 1.364-.405l-1.065-3.461A3 3 0 0 0 8.784 3.5H7.216a3 3 0 0 0-2.868 2.118L3.283 9.079a.711.711 0 1 0 1.365.405l.793-2.777a.285.285 0 0 1 .56.078V7l-1 5h1v3.25a.75.75 0 0 0 1.5 0Z"/>
+                          </svg></span>
+                            Dresscode :{{i.dresscode}}
+                        </p>
+                        <div class=" t-accent-color text-center horizontal-separator w-25 " style="border-bottom: 1px solid rgba(165, 42, 42, 0.349); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+                    </div>
+                    <div class="" >
+                        <p><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-central-south-asia" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M4.882 1.731a.48.48 0 0 0 .14.291.487.487 0 0 1-.126.78l-.291.146a.7.7 0 0 0-.188.135l-.48.48a1 1 0 0 1-1.023.242l-.02-.007a1 1 0 0 0-.462-.04 7 7 0 0 1 2.45-2.027m-3 9.674.86-.216a1 1 0 0 0 .758-.97v-.184a1 1 0 0 1 .445-.832l.04-.026a1 1 0 0 0 .152-1.54L3.121 6.621a.414.414 0 0 1 .542-.624l1.09.818a.5.5 0 0 0 .523.047.5.5 0 0 1 .724.447v.455a.8.8 0 0 0 .131.433l.795 1.192a1 1 0 0 1 .116.238l.73 2.19a1 1 0 0 0 .949.683h.058a1 1 0 0 0 .949-.684l.73-2.189a1 1 0 0 1 .116-.238l.791-1.187A.45.45 0 0 1 11.743 8c.16 0 .306.084.392.218.557.875 1.63 2.282 2.365 2.282l.04-.001a7.003 7.003 0 0 1-12.658.905Z"/>
+                          </svg></span>
+                            Visite Website
+                        </p>
+                        <div class=" t-accent-color text-center horizontal-separator  w-25" style="border-bottom: 1px solid rgba(165, 42, 42, 0.349); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+                    </div>
+                    
+                    </div>
+                    
+                
+                    <div class="d-flex justify-content-end">
+                        <div class="btn" >
+                            <a href="{% url 'diningbooking' i.id  %}"><button class="btn" style="border: 1px solid gray; border-radius: 20px;  background-color: rgba(66, 66, 66, 0.911); color: aliceblue; font-weight: 800;">BOOK NOW</button></a>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+                
+
+              </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+{% endblock  %}

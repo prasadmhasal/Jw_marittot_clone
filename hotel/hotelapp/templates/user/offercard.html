@@ -1,0 +1,53 @@
+{% extends 'user/navbar.html' %}
+{% block title %} <title>offer card</title>{% endblock %} 
+
+
+{% block content  %}
+<style>
+    .myfoot{
+        display: none;
+    }
+    body{
+        background-color: rgba(159, 160, 160, 0.397);
+    }
+   
+    .img-gradient {
+  position:relative;
+  }
+
+
+.img-gradient::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top,rgba(0, 0, 0, 0.7),rgba(63, 63, 63, 0.548),rgba(255, 255, 255, 0.308));
+}
+</style>
+
+<div class="container" style="margin-top: 10%;">
+    
+    <div class="row">
+        {% for i in card %}
+        <div class="col-md-6 col-lg-3 mb-1 d-flex flex-column align-items-center">
+            <div class="card bg-dark text-white img-gradient" style="height: 400px; width: auto;">
+                <img src="{{ i.image.url }}" class="card-img" height="100%" width="100%" alt="...">
+                <div class="card-img-overlay d-flex flex-column justify-content-end text-center bg">
+                    <h6 class="card-title " style="color: #ff9662; font-weight: 600; font-family: proxima-nova,Helvetica,Arial,sans-serif; z-index: 1;">JW MARRIOTT MUMBAI SAHAR</h6>
+                    <p class="card-text  " style="font-size: 18px; font-family: proxima-nova,Helvetica,Arial,sans-serif;  z-index: 1">{{i.room}}</p>
+                   <a href="{% url 'offerdetails' i.id %}" style="color: aliceblue;"><p class="card-text text-start" style="cursor: pointer; font-size: 12px;  z-index: 1">DETAILS </a> 
+                        <span class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="white" class="bi bi-chevron-right" viewBox="0 0 16 16" >
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" style="stroke-width: 2;"/>
+                            </svg>   
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

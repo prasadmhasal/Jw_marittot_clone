@@ -1,0 +1,203 @@
+{% extends "user/navbar.html" %}
+{% block titel %} <title>Offer Details</title>{% endblock %}
+
+{% block content %}
+<style>
+
+    .img-gradient {
+  position:relative;
+  }
+
+
+.img-gradient::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient( 45deg ,rgba(17, 17, 17, 0.925),rgba(20, 20, 20, 0.315));
+}
+
+
+/* popop */
+
+/* CSS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 100%;
+}
+
+.modal-dialog {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.term:hover{
+    color: blue;
+}
+
+</style>
+
+<div class="container-fluid p-0 overflow-hidden" style="margin-top: 20px;">
+    <div class="row">
+        {% for i in offerdetail %}
+        <div class="col-lg-12">
+            <div class="card bg-dark text-white img-gradient p-0 m-0">
+                <img src="{{i.image.url}}" class="card-img" style="object-position: bottom; height: 600px; width: 100%;" alt="...">
+                <div class="card-img-overlay d-flex flex-column justify-content-center align-items-start" style="z-index: 1; margin-left: 15px; text-justify: distribute;">
+                    <h2 class="card-title" style="color: #ff9662; font-weight: 600; font-family: proxima-nova, Helvetica, Arial, sans-serif; max-width: 500px;">{{i.room}}</h2>
+                    <p class="card-text" style="z-index: 1; font-size: larger; max-width: 500px;">{{i.desc}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row justify-content-center" style="position: relative; bottom: 2rem; ">
+        <div class="col-lg-9 col-md-10 col-sm-12">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center" >
+                    <div class="w-50" style="border-right: 1px dotted gray;">
+                        <p class="card-text" style="font-size: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            </svg>                        
+                            Destination
+                        </p>
+                        <h3 class="card-title">JW Marriott Mumbai Sahar</h3>
+                    </div>
+                    <div class="w-50 text-right">
+                        <div class="btn">
+                            <p class="card-text text-lg-start" style="font-size: 20px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                  </svg>                   
+                                Date 
+                            </p>
+                            {% for i in offerdetail %}
+                            <h4 class="card-title" style="font-size: 20px;">{{i.startdate}}-{{i.enddate}}</h4>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="w-25 text-right">
+                        <div class="btn" >
+                           <a href=""><button class="btn" style="border: 1px solid gray; border-radius: 20px;  background-color: rgba(66, 66, 66, 0.911); color: aliceblue; font-weight: 800;">BOOK NOW</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #6d6b6b44;">
+        <div class="row justify-content-around">
+            {% for i in offerdetail %}
+            <div class="col-lg-9 col-md-6 mt-5 ">
+                <div class="d-flex">
+                    <div>
+                        <p style="font-size: 18px; padding: 10px;">Enjoy your <strong>{{i.room}}</strong> into the tranquil luxury at JW Marriott Mumbai Sahar.</p>
+                    </div>
+                    <div class="text-start w-50">
+                        <h3 style="font-size: 18px; padding: 10px;"> <strong>NEED TO KNOW</strong></h3>
+                        <p>{{i.needknow}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-6">
+                <div class="d-flex">
+                    <div class="text-start w-50">
+                        <h3 style="font-size: 18px; padding: 10px;"> <strong>INCLUDING</strong></h3>
+                        <p style="text-wrap: wrap; justify-content:flex-start;">{{i.include}}</p>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-lg-9 col-md-6 mt-3 ">
+                <div class="d-flex">
+                    <div class="text-start w-50">
+                        <h3 style="font-size: 18px; padding: 10px;"> <strong>HOW TO BOOK</strong></h3>
+                        <p style="text-wrap: wrap; justify-content:flex-start;">Reserve online or call 1-800-MARRIOTT or one of our toll-free worldwide reservation numbers and quote the Promotional Code for this offer</p>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-6 col-sm-3 mt-3 mb-5">
+                <button  id="openModalBtn" style="border: none; background-color: #6d6b6b04; color: rgba(92, 92, 92, 0.699); font-size: 18px; font-weight: 500;"> <span class="term">Terms & Conditions
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                      </svg></span> </button>
+                <div id="modal" class="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <span class="close text-end m-2 " style="cursor: pointer; font-size:20px;">&times;</span>
+                            <h2 class="text-center" style="font-size: 25px;">Terms and Conditions</h2>
+                            <div class="separator t-accent-color text-center horizontal-separator mt-4 mb-4 w-100" style="border-bottom: 1px solid rgba(0, 0, 0, 0.774);  width: 100px;"></div>
+                            <div class="modal-body" style="font-size: 18px;">
+                                <p>Additional terms: Bonus Points will be credited Per Stay. There are a limited number of rooms available for this promotion. Guest must book reservation using promotional code listed above in order to receive bonus points. Offer applies to one regular room per stay, per member on dates listed.  A "hotel stay" or "stay" means all consecutive nights spent with Marriott by a registered Marriott Bonvoy™ member.  Offer not available during special events; tax is additional; special offers cannot be combined; blackout dates may exist; advance reservations are required.  Offer does not apply to groups of 10 or more rooms.  Members electing to earn miles are not eligible for this promotion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row text-center justify-content-center">
+            <h1>MORE OFFERS AT THIS PROPERTY</h1>
+           
+            {% for i in alloffer %}
+            <div class="col-lg-12 mt-3">
+                <div class="card mb-3 shadow border">
+                    <div class="row d-flex ">
+                      <div class="col-lg-6 col-md-4" style="width: 500px; height: 300px;">
+                        <img src="{{i.image.url}}" class="card-img rounded-start" height="300px"  alt="...">
+                      </div>
+                      <div class=" col-lg-6 col-md-4 ">
+                        <div class="card-body mt-5" >
+                          <h5 class="card-title">{{i.room}}</h5>
+                          <p class="card-text">{{i.desc}}</p>
+                          <p class="card-text"><a href="#" class="btn button "  style="border:1px solid rgb(114, 114, 114); border-radius: 50px; font-weight: 800; color: rgb(250, 250, 250); background-color: rgba(0, 0, 0, 0.541);"><span class="">Book now</span></a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+        </div>
+
+    </div>
+
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+{%  endblock %}

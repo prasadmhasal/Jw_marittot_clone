@@ -1,0 +1,191 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+
+{% block title  %}<title> Home page </title> {% endblock %}
+
+
+
+{% block content %}
+
+<style>
+  .slider-hidden {
+      display: none;
+  }
+  .button:hover{
+    background-color: rgba(66, 66, 66, 0.664);
+    color: aliceblue;
+  }
+
+
+/* card test  */
+.slider{
+  max-width: 1100px;
+  display: flex;
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: #fff;
+}
+.slider .card .img{
+  height: 200px;
+  width: 100%;
+}
+.slider .card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider .card .content{
+  padding: 10px 20px;
+}
+.card .content .title{
+  font-size: 25px;
+  font-weight: 600;
+}
+.card .content .sub-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: #e74c3c;
+  line-height: 20px;
+}
+.card .content p{
+  text-align: justify;
+  margin: 5px 0;
+}
+.card .content .btn{
+  display: block;
+  text-align: left;
+  margin: 5px 0;
+}
+.card .content .btn button{
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .content .btn button:hover{
+  transform: scale(0.9);
+}
+
+
+</style>
+<!-- slider start  -->
+<div id="carouselExampleIndicators" class="carousel slide mt-lg-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../static/img/slider1.jpg" class="d-block w-100 vh-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../static/img/slider2.jpg" class="d-block w-100 vh-100" alt="...">
+      </div>
+      <div class="carousel-item "  >
+        <img src="../../static/img/slider4.avif" class="d-block w-100 vh-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- slider end  -->
+  <!-- content start  -->
+
+  <div class="container d-flex justify-content-center align-items-center ">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class=" mt-5 ">
+                <img src="../../static/img/mlogo.png" alt="" srcset="" width="50" height="50">
+            </div>
+            <div class="text-center mt-4">
+                <p style="color: rgba(146, 146, 146, 0.918); font-weight: 500;">WELCOME TO JW MARRIOTT MUMBAI SAHAR</p>
+            </div>
+            <div class="text-center mt-4 ">
+              <h2 style=" font-weight: 400;">EXPERIENCE MUMBAI FROM OUR ANDHERI EAST <br> HOTEL</h2>
+          </div>
+          <div class="separator t-accent-color text-center horizontal-separator mt-4 mb-4 mx-auto " style="border-bottom: 1px solid rgba(165, 42, 42, 0.664); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+          <div class="text-center">
+            <p style="font-size: 15px;">Unparalleled luxury and world-class service await you at JW Marriott Mumbai Sahar in India. Our Mumbai, India, hotel is conveniently located in Andheri East, just a short drive from Mumbai's international and domestic airports and is conveniently located near the area's business hubs. Sample a variety of cuisines, including authentic Italian and classic Indian, at our hotel's restaurants. Our well-appointed...  <span id="toggleSlider" class="slider-hidden">  indoor convention spaces are ideal for corporate gatherings, award ceremonies, social functions or weddings. Unwind at our luxury spa, our Andheri, Mumbai hotel's fitness center or our poolside lounge area with cabanas, perfect for soaking up the warm sun. Our 5-star hotel accommodations feature 588 spacious rooms with pillowtop beds, marble bathrooms and high-speed Wi-Fi, as well as generous work desks and 24-hour room service. Reserve your stay at the JW Marriott Mumbai Sahar for a luxury hotel experience.</span>  <span onclick="toggleSlider()" style="text-decoration: underline;"> See more</span>  </p>   
+        </div>
+        </div>
+    </div>
+</div>
+<!-- content end  -->
+<!-- card slider start  -->
+<div class="container-fluid text-center mt-3" style="background-color: rgba(159, 160, 160, 0.397);">
+  <div class="p-3 text-lg-start">
+    <p style="font-weight: 300; font-size: 30px;">ROOMS & SUITES</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-12 col-md-9 col-sm-12 custom-slider owl-carousel">
+      {% for i in s %}
+      <div class="custom-slider-card rounded-circle">
+        <div class="custom-img"><img src="{{ i.image.url }}" height="300px" alt=""></div>
+        <a href="{% url 'acommodation' %}">
+          <div class="custom-content card-title bg-white p-3 rounded d-flex">
+            <p style="font-size: 16px; font-weight: 400; color: black;" class="card-title float-start">{{ i.room }},{{ i.caption }},{{ i.view }}</p>
+            <span class="float-end" style="margin-left: 10px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- offer cards  -->
+<div class="container-fluid" style="background-color: rgba(159, 160, 160, 0.397);">
+  <div class="row justify-content-center">
+      <div class="mt-3 fs-3 mb-3 text-center">
+          <p style="font-weight: 200; font-size: 25px;">OFFERS AND PACKAGES</p>
+      </div>
+      {% for i in offer %}
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100 w-100">
+              <img src="{{i.image.url}}" class="card-img-top" height="300px" alt="...">
+              <div class="card-body d-flex flex-column">
+                  <h5 class="card-title" style="font-weight: 500; color: rgba(0, 0, 0, 0.582);"><strong>{{i.caption}}</strong></h5>
+                  <p class="card-text">Available: {{i.startdate}}-{{i.enddate}}</p>
+                  <p class="card-text flex-grow-1">{{i.desc}}</p>
+                  <div class="text-center mt-auto">
+                      <a href="{% url 'offerdetails' i.id %}" class="btn button" style="border:1px solid gray; border-radius: 50px; font-weight: 500;">Learn more</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+
+      <div class="text-center mt-auto mb-3">
+        <a href="{% url 'offercard' %}" class="btn button" style="border:1px solid gray; border-radius: 50px; font-weight: 500;">See more offer</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+{% endblock %}
+
+ 

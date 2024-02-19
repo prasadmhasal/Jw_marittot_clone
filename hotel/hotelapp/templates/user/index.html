@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: Okra, Helvetica, sans-serif;
+        }
+       
+        /* .content {
+            position: relative;
+            z-index: 1;
+        } */
+
+        /* .top-right {
+             
+            color: white; 
+            display: flex;
+            justify-content: end;
+            padding: 5px;
+
+        } */
+        .container-fluid {
+           
+    height: 100vh; /* Set height to 100% of viewport height */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="container-fluid p-0" style="position: relative;">
+        <div class="bg-blur" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('static/img/welcome1.avif'); background-size: cover; background-repeat: no-repeat; background-position: center; filter: blur(3px);"></div>
+        <nav class="navbar navbar-light justify-content-end" style="position: relative; z-index: 2;">
+            <form class="form-inline mt-3 p-4">
+                <a href="{%  url 'userlogin' %}" class="navbar-brand text-white" style="font-size: 20px;" name="userlogin">Log in</a>
+                <a href="{% url 'usersignin' %}" class="navbar-brand text-white" style="font-size: 20px;">Sign up</a>
+            </form>
+        </nav>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12    col-md-8 col-lg-6 text-center" style="margin-top: 10%; color: aliceblue; position: relative; z-index: 3;">
+                    <h1 class="mb-4" style="color: rgb(255, 255, 255); font-size: 2rem;">LUXURYOUS STAY AT <span style="color: rgb(255, 107, 2);">JW MARRIOTT</span>  HOTEL</h1>
+                    <div class="separator t-accent-color text-center horizontal-separator mt-2 mb-2 mx-auto" style="border-bottom: 3px solid rgb(255, 255, 255); color: rgba(255, 255, 255, 0.685); width: 70%;"></div>
+                    <h1 class="mb-4" style="color: rgb(255, 255, 255);">MUMBAI SAHAR</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       
+    
+    
+
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js'  %}"></script>
+</body>
+</html>

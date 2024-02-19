@@ -1,0 +1,162 @@
+{% extends 'admin/nav.html' %}
+
+{% block title %} <title>Room add</title> {% endblock %}
+
+
+{% block content %}
+
+<style>
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blue-text {
+    color: #00BCD4;
+}
+
+.form-control-label {
+    margin-bottom: 0;
+}
+
+input, textarea, button {
+    padding: 8px 10px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #faf9f9bd;
+    font-size: 18px !important;
+    font-weight: 300;
+}
+
+input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 300;
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer;
+}
+
+.btn-block:hover {
+    color: #fff !important;
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+</style>
+{%  if messages %}
+{% for message in messages %}
+<script>
+    alert ('{{message}}')
+</script>
+{% endfor %}
+{% endif %}
+
+
+<div class="container-fluid px-1  mx-auto text-dark ">
+    <div class="row d-flex justify-content-center text-center">
+        <p class="mt-4" style="font-size:30px; color:gray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add Room Product</p>
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 ">
+            <div class="card mt-0 shadow border bg-c-blue">
+                <form class="form-card" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text-start">Room name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="rname" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text-start">Capacity<span class="text-danger"> *</span></label> <input type="text" id="lname" name="capacity" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Descripation<span class="text-danger"> *</span></label> <input type="text" id="email" name="desc" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Views<span class="text-danger"> *</span></label> <input type="text" id="mob" name="views" placeholder="" onblur="validate(4)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Bed Size<span class="text-danger"> *</span></label> <input type="text" id="job" name="caption" placeholder="" onblur="validate(5)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Price<span class="text-danger"> *</span></label> <input type="text" id="job" name="price" placeholder="" onblur="validate(5)"> </div>
+                    </div>
+                    <!-- feature  -->
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Beds and Bedding<span class="text-danger"> *</span></label>
+                            <textarea id="bedsTextarea" name="bedbedding" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Food & Beverages<span class="text-danger"> *</span></label>
+                            <textarea id="foodTextarea" name="foodbeverage" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Entertainment<span class="text-danger"> *</span></label>
+                            <textarea id="entertainmentTextarea" name="entertainment" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Bath and Bathroom Features<span class="text-danger"> *</span></label>
+                            <textarea id="bathroomTextarea" name="bedbathroom" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Kitchen Features<span class="text-danger"> *</span></label>
+                            <textarea id="entertainmentTextarea" name="kitchen" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Room Features<span class="text-danger"> *</span></label>
+                            <textarea id="bathroomTextarea" name="roomfrature" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Accessible Room Features<span class="text-danger"> *</span></label>
+                            <textarea id="entertainmentTextarea" name="accessible" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Furniture and Furnishings<span class="text-danger"> *</span></label>
+                            <textarea id="bathroomTextarea" name="furniture" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Internet and Phones<span class="text-danger"> *</span></label>
+                            <textarea id="entertainmentTextarea" name="internate" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3 text-start">Hospitality Services<span class="text-danger"> *</span></label>
+                            <textarea id="bathroomTextarea" name="hospitality" placeholder="" onblur="validate(5)"></textarea>
+                        </div>
+                    </div>
+                    <!-- feature end  -->
+
+
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3 text-start">Room Image<span class="text-danger"> *</span></label> <input type="file" id="ans" name="image" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img1" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img2" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img3" placeholder="" onblur="validate(6)"> </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn btn-success">Submit</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

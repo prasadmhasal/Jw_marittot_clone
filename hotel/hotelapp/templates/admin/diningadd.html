@@ -1,0 +1,112 @@
+{% extends 'admin/nav.html' %}
+
+{% block title %} <title>Food add</title> {% endblock %}
+
+
+{% block content %}
+
+<style>
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blue-text {
+    color: #00BCD4;
+}
+
+.form-control-label {
+    margin-bottom: 0;
+}
+
+input, textarea, button {
+    padding: 8px 10px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #faf9f9bd;
+    font-size: 18px !important;
+    font-weight: 300;
+}
+
+input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 100;
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer;
+}
+
+.btn-block:hover {
+    color: #fff !important;
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+</style>
+{%  if messages %}
+{% for message in messages %}
+<script>
+    alert ('{{message}}')
+</script>
+{% endfor %}
+{% endif %}
+
+
+<div class="container-fluid px-1  mx-auto overflow-hidden mb-5 text-dark ">
+    <div class="row d-flex justify-content-center text-center">
+        <p class="mt-4" style="font-size:30px; color:gray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add Dining </p>
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 ">
+            <div class="card mt-0 shadow border bg-c-blue">
+                <form class="form-card" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text-start">Dining Title<span class="text-danger"> *</span></label> <input type="text" id="fname" name="dtitle" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text-start">Dining Type<span class="text-danger"> *</span></label> <input type="text" id="lname" name="dtype" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Descripation<span class="text-danger"> *</span></label> <input type="text" id="email" name="desc" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Day Time<span class="text-danger"> *</span></label> <input type="time" id="mob" name="time" placeholder="" onblur="validate(4)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Night Time<span class="text-danger"> *</span></label> <input type="time" id="job" name="time1" placeholder="" onblur="validate(5)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Day<span class="text-danger"> *</span></label> <input type="text" id="job" name="day" placeholder="" onblur="validate(5)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Number<span class="text-danger"> *</span></label> <input type="text" id="job" name="number" placeholder="" onblur="validate(5)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Dress code<span class="text-danger"> *</span></label> <input type="text" id="job" name="dresscode" placeholder="" onblur="validate(5)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3 text-start">Pre-booking amount<span class="text-danger"> *</span></label> <input type="text" id="job" name="preamount" placeholder="" onblur="validate(5)"> </div>
+                    </div>
+                     <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3 text-start">Room Image<span class="text-danger">*</span></label> <input type="file" id="ans" name="image" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img1" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img2" placeholder="" onblur="validate(6)"> </div>
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"></span></label> <input type="file" id="ans" name="img3" placeholder="" onblur="validate(6)"> </div>
+                    </div> 
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn btn-success">Submit</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "user/navbar.html" %}
+
+{% block title  %}<title> Acommodation </title> {% endblock %}
+
+{% block content %}
+<style>
+  .slider-hidden {
+      display: none;
+  }
+  .hov:hover{
+    color: rgba(59, 59, 59, 0.897);
+  }
+  
+
+
+</style>
+<!-- slider  -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../static/img/gallery/suits1.jpg" class="d-block w-100" height="500px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../static/img/gallery/guest3.avif" class="d-block w-100" height="500px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../static/img/gallery/guest2.jpg" class="d-block w-100" height="500px" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev text-dark" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- end slider  -->
+  <!-- content  -->
+  <div class="container d-flex justify-content-center align-items-center ">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class=" mt-5 ">
+                <img src="../../static/img/JW-Marquis.jpg" alt="" srcset="" width="150" height="80">
+            </div>
+            <div class="text-center mt-4">
+                <p style="color: rgba(146, 146, 146, 0.918); font-weight: 500;">WELCOME TO JW MARRIOTT MUMBAI SAHAR</p>
+            </div>
+            <div class="text-center mt-4 ">
+              <h2 style=" font-weight: 400;">LUXURIOUSLY ELEGANT HOTEL ROOMS IN MUMBAI,  <br> ANDHERI EAST </h2>
+          </div>
+          <div class=" t-accent-color text-center horizontal-separator mt-4 mb-4 mx-auto " style="border-bottom: 1px solid rgba(165, 42, 42, 0.664); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+          
+        </div>
+    </div>
+</div>
+  <!-- end content  -->
+  <!-- small descripations  -->
+  <div class="container">
+    <div class="row ml-xl-0 mr-xl-0">
+        <div class="col-lg-12 m-3">
+          <div class="row">
+                <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4">
+                    <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Let our luxurious hotel rooms in Andheri East be your relaxing retreat in Mumbai</p>
+                </div>
+                <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4">
+                    <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Enjoy views of our outdoor pool or Mumbai Airport through large, soundproof windows in each room</p>
+                </div>
+                <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4">
+                    <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Stay connected with complimentary Wi-Fi and plug-in panels to stream media via your personal devices</p>
+                </div>
+              </div>
+        </div>
+        <span class="slider-hidden" id="toggleSlider">
+          <div class="col-lg-12 m-3">
+            <div class="row">
+            <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4 ">
+                <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Our two-story Executive Lounge offers complimentary food and beverages along with business services</p>
+            </div>
+            <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4">
+                <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Elevate your stay by reserving our Concierge Mumbai hotel accommodations with upscale amenities</p>
+            </div>
+            <div class="col-xl-4 ml-3 mr-3 pl-0 pr-0 ml-xl-0 mr-xl-0 pr-xl-5 mb-3 mb-xl-4">
+                <p class="fs-6" style="border-left: 1px solid rgba(165, 42, 42, 0.664); padding: 5px;">Our spacious Mumbai suites are ideal when visiting India with family or a group</p>
+            </div>
+          </div>
+          </div>
+        </span>
+        <span class="mb-4" onclick="toggleSlider()" style="text-decoration: underline; cursor: pointer;"> See more</span>
+    </div>
+</div>
+  <!-- end descripations  -->
+
+  <div class="container d-flex justify-content-center align-items-center ">
+    <div class="row">
+        <div class="col-12 text-center">
+          <div class="message-icon-container d-flex justify-content-center align-items-center mb-3">
+            <div class=" t-accent-color text-center horizontal-separator mt-4 mb-4  " style="border-bottom: 1px solid rgba(0, 0, 0, 0.664); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+            <span class="t-font-xs mx-4">MARRIOTT BONVOY</span>
+            <div class=" t-accent-color text-center horizontal-separator mt-4 mb-4  " style="border-bottom: 1px solid rgba(0, 0, 0, 0.664); color: rgba(165, 42, 42, 0.685); width: 100px;"></div>
+        </div>
+            <div class="text-center mt-4 ">
+              <h2 style=" font-weight: 400;">SAVE NOW WITH A MARRIOTT BONVOY MEMBER RATE </h2>
+          </div>
+          <div class="text-center mt-4">
+            <p style="color: rgba(146, 146, 146, 0.918); font-weight: 500;">Book this hotel and join Marriott Bonvoy free at checkout.</p>
+        </div>
+          <div class="text-center">
+            <a href="{% url 'roombooking' %}" class="btn button "  style="border:1px solid rgb(114, 114, 114); border-radius: 50px; font-weight: 800; color: rgb(250, 250, 250); background-color: rgba(0, 0, 0, 0.541);"><span class="">Book now</span></a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- cards  -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          {% for i in data %}
+          <div class="col-md-6 mb-4">
+            <div class="card rounded border shadow">
+              <img class="bd-placeholder-img card-img-top rounded" src="{{i.image.url}}" alt="Image cap" style="width: 100%; height: 300px; object-fit: cover;">
+              <div class="card-body">
+                <p class="card-text" style="font-size: 20px; font-weight: 500;">{{i.room}},{{i.caption}},{{i.view}}</p>
+              </div>
+              <div class=" t-accent-color text-center horizontal-separator mt-1 mb-4 m-5 w-75 " style="border-bottom: 1px solid rgba(0, 0, 0, 0.664); color: rgba(0, 0, 0, 0.685); width: 100px;"></div>
+
+              <div class="text-center mb-3">
+                <a href="{% url 'roomdetails' i.id  %}" class="text-dark text-decoration-underline  " style="font-weight: 500; color: rgb(17, 17, 17); font-size: 18px"><span class="hov">View more</span></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- end cards  -->
+
+
+
+{% endblock %}
+
+  <script>
+    function toggleSlider() {
+        var slider = document.getElementById('toggleSlider');
+        slider.classList.toggle('slider-hidden');
+    }
+</script>
+
