@@ -304,7 +304,9 @@ def DiningBook(request,id):
     return render(request,'user/diningbooking.html',{'book':book,'cid':cid})
 
 def Roombooking(request):
-    return render(request,'user/roombooking.html')
+    roomlist = RoomProduct.objects.all().order_by('-id')[:5]
+    roomoffer = RoomOffer.objects.all().order_by('-id')[:5]
+    return render(request,'user/roombooking.html',{'room':roomlist,'roomoffer':roomoffer})
 
 
 @csrf_exempt

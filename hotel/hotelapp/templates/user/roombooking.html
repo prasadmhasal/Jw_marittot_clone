@@ -38,46 +38,54 @@
                       <a class="nav-link" data-bs-toggle="tab" href="#tab2">Tab 2</a>
                     </li>
                   </ul>
-                  
-                  <div class="tab-content">
-                    <div id="tab1" class="tab-pane fade show activer">
-                        <div class="w-100 d-flex justify-content-center">
+
+                  {% comment %} first tabs  {% endcomment %}
+                 <div class="tab-content">
+                    
+                    <div id="tab1" class="tab-pane fade show activer p-3">
+                        {% for i in room  %}
+                        <div class="w-100 d-flex justify-content-center ">
                             <div class="card mb-3 mt-3" style="max-width: 100%;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" width="100%" alt="...">
+                                        <img src="{{ i.image.url }}" class="img-fluid rounded-start" width="100%" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">Tab 1 Content</h5>
+                                            <h5 class="card-title">{{ i.room }},{{ i.caption }},{{ i.view }}</h5>
                                             <p class="card-text">This is some content for Tab 1.</p>
                                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                       
+                        </div> 
+                        {% endfor %}
                     </div>
-                    <div id="tab2" class="tab-pane fade">
+                    
+
+                    {% comment %} second tabs  {% endcomment %}
+                    <div id="tab2" class="tab-pane fade p-3">
+                        {% for i in roomoffer  %}
                         <div class="w-100 d-flex justify-content-center">
                             <div class="card mb-3 mt-3" style="max-width: 100%;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" width="100%" alt="...">
+                                        <img src="{{i.image.url}}" class="img-fluid rounded-start" width="100%" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">Tab 2 Content</h5>
-                                            <p class="card-text">This is some content for Tab 2.</p>
+                                            <h5 class="card-title">{{i.caption}}</h5>
+                                            <p class="card-text">{{i.desc}}</p>
                                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
+                    
                 </div>
             </div>
 
