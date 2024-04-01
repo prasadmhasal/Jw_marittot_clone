@@ -340,3 +340,8 @@ def DiningPayment(request,id):
     context['pid'] = id
     
     return render(request,'user/pay.html',context)
+
+def BookingPopUp(request,id):
+    data = RoomProduct.objects.filter(pk=id)
+
+    return render(request,'roombooking.html',{'data':data})

@@ -53,6 +53,20 @@
     color: blue;
 }
 
+
+
+.modal-dialog-fullscreen {
+    margin-top: 10%;
+    width: 75%;
+    max-width:75%;
+}
+
+.modal-content {
+    width: 75%;
+}
+
+
+
 </style>
 <div class="container-fluid" style="margin-top: 10%;">
     <div class="row justify-content-center">
@@ -115,15 +129,21 @@
                                         </div>
                                         <!-- sliderend  -->
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6">  
+                                       
                                         <div class="card-body rounded-2 d-flex justify-content-between ">
                                             <h4 class="card-title w-75">{{ i.room }}, {{ i.caption }}, {{ i.view }}</h4>
+                                        
                                             <div class="text-end">
-                                                <button  id="openModalBtn" onclick="btt()" style="border: none; background-color: #6d6b6b04; color: rgba(92, 92, 92, 0.699); font-size: 18px; font-weight: 500; text-decoration: underline;"> <span class="term">Room Details
-                                                    </span> </button>
+                                                 
+                                                <a href="#"><button  id="openModalBtn" onclick="btt()" style="border: none; background-color: #6d6b6b04; color: rgba(92, 92, 92, 0.699); font-size: 18px; font-weight: 500; text-decoration: underline;"> <span class="term">Room Details
+                                                </span> </button> </a>
                                                     <div id="modal" class="modal">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
+                                                       
+                                                        <div class="modal-dialog modal-dialog-fullscreen">
+                                                            <div class="modal-content w-100">
+                                                              
+                                                               
                                                                 <span class="close text-end m-2 " style="cursor: pointer; font-size:20px;">&times;</span>
                                                                 <!-- slider  -->
                                                                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -162,14 +182,92 @@
                                                                     </button>
                                                                   </div>
                                                                 <!-- slider  -->
+                                                                
                                                                 <div class="separator t-accent-color text-center horizontal-separator mt-4 mb-4 w-100" style="border-bottom: 1px solid rgba(0, 0, 0, 0.774);  width: 100px;"></div>
+                                                                
                                                                 <div class="modal-body" style="font-size: 18px;">
-                                                                    <p>Additional terms: Bonus Points will be credited Per Stay. There are a limited number of rooms available for this promotion. Guest must book reservation using promotional code listed above in order to receive bonus points. Offer applies to one regular room per stay, per member on dates listed.  A "hotel stay" or "stay" means all consecutive nights spent with Marriott by a registered Marriott Bonvoy™ member.  Offer not available during special events; tax is additional; special offers cannot be combined; blackout dates may exist; advance reservations are required.  Offer does not apply to groups of 10 or more rooms.  Members electing to earn miles are not eligible for this promotion.</p>
+                                                                    
+                                                                    <div class="row justify-content-around text-lg-start m-3">
+                                                                        <div class="col-lg-4 col-sm-12">
+                                                                            <h5>Beds and Bedding</h5>
+                                                                            <p>{{}}</p>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-sm-12">
+                                                                            <h5>Food & Beverages</h5>
+                                                                            <p ></p>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-sm-12">
+                                                                            <h5>Entertainment</h5>
+                                                                            <p></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+
+                                                                <div class="row justify-content-around text-lg-start  m-3">
+                                                                    <div class="col-12">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-sm-12" >
+                                                                                <h5 style="margin-top: 5px;">Bath and Bathroom Features</h5>
+                                                                                <p>{{i.bath_bathroom_features}}</p>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                <h5>Kitchen Features</h5>
+                                                                                <p>{{i.kitchen_features}}</p>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                 <h5>Room Features</h5>
+                                                                                <p>{{i.room_features}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                <div class="row justify-content-around text-lg-start  m-3">
+                                                                    <div class="col-12">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                <h5>Furniture and Furnishings</h5>
+                                                                                <p>{{i.furniture_furnishings}}</p>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                <h5>Internet and Phones</h5>
+                                                                                <p>{{i.internet_phones}}</p>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                <h5>Hospitality Services</h5>
+                                                                                <p>{{i.hospitality_services}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                
+                                                                <div class="row justify-content-around text-lg-start  m-3">
+                                                                    <div class="col-12">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-sm-12">
+                                                                                <h5>Accessible Room Features</h5>
+                                                                                <p>{{i.accessible_features}}</p>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                
+                                                                </div>
+                                                                 
+                                                                
                                                             </div>
+                                                            
+
+                                                            
+                                                            
                                                         </div>
+                                                     
                                                     </div>
+                                                    
+                                                   
                                             </div>
+                                        
                                         </div>
                                         <div class="card-body rounded-2 d-flex justify-content-between mx-auto">
                                             <p class="card-title"><strong>Member Flexible Rate</strong></p>

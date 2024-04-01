@@ -135,7 +135,7 @@
       {% for i in slider %}
       <div class="custom-slider-card rounded-circle">
         <div class="custom-img"><img src="{{ i.image.url }}" height="300px" alt=""></div>
-        <a href="{% url 'acommodation' %}">
+        <a href="{% url 'acommodation'  %}">
           <div class="custom-content card-title bg-white p-3 rounded d-flex">
             <p style="font-size: 16px; font-weight: 400; color: black;" class="card-title float-start">{{ i.room }},{{ i.caption }},{{ i.view }}</p>
             <span class="float-end" style="margin-left: 10px;">

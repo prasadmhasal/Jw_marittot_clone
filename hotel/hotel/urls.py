@@ -52,6 +52,7 @@ urlpatterns = [
     path('diningconfirm/<int:id>',views.Diningconfirm,name='diningconfirm'),
     path('diningpay/<int:id>',views.DiningPayment,name='diningpayment'),
     path('roombooking/',views.Roombooking,name='roombooking'),
+    path('roombookingpoup/<int:id>', views.BookingPopUp,name='roombookingpoup')
 
 
 ]
