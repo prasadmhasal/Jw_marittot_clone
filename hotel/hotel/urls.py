@@ -53,7 +53,7 @@ urlpatterns = [
     path('diningpay/<int:id>',views.DiningPayment,name='diningpayment'),
     path('roombooking/',views.Roombooking,name='roombooking'),
     path('roombookingpoup/<int:id>', views.BookingPopUp,name='roombookingpoup'),
-    path('roombookform/',views.Roombookform,name='roombookform')
+    path('roombookform/<int:id>',views.Roombookform,name='roombookform')
 
 
 ]

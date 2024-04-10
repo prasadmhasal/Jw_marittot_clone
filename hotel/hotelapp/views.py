@@ -346,5 +346,6 @@ def BookingPopUp(request,id):
 
     return render(request,'roombooking.html',{'data':data})
 
-def Roombookform(request):
-     return  render(request,'user/roombookform.html')
+def Roombookform(request,id):
+    da = RoomProduct.objects.filter(pk=id)
+    return  render(request,'user/roombookform.html',{'da':da})
