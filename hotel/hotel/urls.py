@@ -52,9 +52,10 @@ urlpatterns = [
     path('diningconfirm/<int:id>',views.Diningconfirm,name='diningconfirm'),
     path('diningpay/<int:id>',views.DiningPayment,name='diningpayment'),
     path('roombooking/',views.Roombooking,name='roombooking'),
-    path('roombookingpoup/<int:id>', views.BookingPopUp,name='roombookingpoup'),
-    path('roombookform/<int:id>',views.Roombookform,name='roombookform')
-
+    path('roombookingpoup/<int:id>/', views.BookingPopUp,name='roombookingpoup'),
+    path('roombookform/<int:id>/',views.Roombookform,name='roombookform'),
+    path('bookingroom/<int:id>/',views.Bookingroom,name='bookingroom'),
+    path('thankyou/',views.Thankyou,name='thankyou')
 
 ]
 urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

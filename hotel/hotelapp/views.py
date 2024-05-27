@@ -6,7 +6,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
-
+from django.shortcuts import render, redirect
+from django.utils import timezone
+from datetime import timedelta
+TIMEOUT_DURATION = 300 
 # Create your views here.
 
 
@@ -119,10 +122,14 @@ def Signin(request):
         uname = request.POST.get('uname')
         email = request.POST.get('email')
         pass1 = request.POST.get('password')
-        print(uname,email,pass1)
-        User.objects.create_user(uname,email,pass1)
-        messages.success(request,"Sign in successfully competed")
-        return HttpResponseRedirect('/userlogin/')
+        if User.objects.filter(username=uname,email=email).exists():
+            messages.error(request, 'Username already exists. Please choose a different username.')
+            return render(request, 'user/signin.html')
+        else:
+            print(uname,email,pass1)
+            User.objects.create_user(uname,email,pass1)
+            messages.success(request,"Sign in successfully competed")
+            return HttpResponseRedirect('/userlogin/')
     else:
         return render(request,'user/signin.html')
 
@@ -134,6 +141,9 @@ def Login(request):
         if user is not None:
             login(request,user)
             return HttpResponseRedirect('/userhome/')
+        else:
+            messages.error(request, 'Invalid username or password. Please try again.')
+
     return render(request,'user/login.html')
 
 
@@ -347,5 +357,27 @@ def BookingPopUp(request,id):
     return render(request,'roombooking.html',{'data':data})
 
 def Roombookform(request,id):
+    if 'start_time' not in request.session:
+        request.session['start_time'] = timezone.now().strftime('%Y-%m-%d %H:%M:%S')
     da = RoomProduct.objects.filter(pk=id)
-    return  render(request,'user/roombookform.html',{'da':da})
+    return  render(request,'user/roombookform.html',{'da':da ,'timeout_duration': TIMEOUT_DURATION})
+
+
+
+def Bookingroom(request,id):
+    client = razorpay.Client(auth=("rzp_test_VPel75yVZnzpbD", "SYoHmR95xmbUb7BNW1SSLzBc"))
+    product_amt= RoomProduct.objects.filter(id=id).values_list('price',flat=True)
+    print(product_amt[0])
+    amount = product_amt[0]
+    data = {"amount": amount, "currency": "INR", "receipt": "order_rcptid_11" }
+    payment = client.order.create(data=data)
+    context = {}
+    context['amt']= amount*100
+    context['pid'] = id
+    return render(request,'user/roompay.html',context)
+
+@csrf_exempt
+def  Thankyou(request):
+    return render(request,'user/thankyou.html')
+
+    
