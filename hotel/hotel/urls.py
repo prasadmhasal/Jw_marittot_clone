@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from hotelapp import views 
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -55,7 +56,11 @@ urlpatterns = [
     path('roombookingpoup/<int:id>/', views.BookingPopUp,name='roombookingpoup'),
     path('roombookform/<int:id>/',views.Roombookform,name='roombookform'),
     path('bookingroom/<int:id>/',views.Bookingroom,name='bookingroom'),
-    path('thankyou/',views.Thankyou,name='thankyou')
+    path('thankyou/',views.Thankyou,name='thankyou'),
+    path('password_reset/', views.password_reset_request, name='password_reset'),
+    path('password_reset/done/', views.password_reset_done, name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
+    path('reset/done/', views.password_reset_complete, name='password_reset_complete'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

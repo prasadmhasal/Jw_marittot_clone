@@ -58,7 +58,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            startCountdown({{ timeout_duration }});
+            console.log("DOMContentLoaded event fired");
+            startCountdown({{timeout_duration }});
         });
     </script>
 </head>

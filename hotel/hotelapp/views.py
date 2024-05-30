@@ -9,6 +9,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from datetime import timedelta
+from django.core.mail import send_mail
+from django.conf import settings
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
+from django.contrib.auth.tokens import default_token_generator
+from django.http import Http404
 TIMEOUT_DURATION = 300 
 # Create your views here.
 
@@ -128,6 +137,22 @@ def Signin(request):
         else:
             print(uname,email,pass1)
             User.objects.create_user(uname,email,pass1)
+            subject = f"Welcome To JW MARRIOTT {uname}"
+            message = f""" 
+            Dear {uname} ,
+            Thank you for signing up with JW Marriott! We are thrilled to have you join our community. 
+            Whether you're planning your next business trip or a luxurious vacation, we are here to provide 
+            you with an exceptional stay.\n
+            As a registered member, you will receive exclusive updates on our latest offers, special promotions, 
+            and much more. Be sure to check your email regularly to stay informed about everything we have to offer.\n
+            We look forward to welcoming you to one of our many locations worldwide and ensuring you have a memorable experience.\n
+            Warm regards,\n
+            The JW Marriott Team\n
+            Contact us: support@marriott.com\n
+            """
+            mail_from = settings.EMAIL_HOST_USER
+            mail_to = email
+            send_mail(subject,message,mail_from,[mail_to])
             messages.success(request,"Sign in successfully competed")
             return HttpResponseRedirect('/userlogin/')
     else:
@@ -140,12 +165,63 @@ def Login(request):
         user = authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            return HttpResponseRedirect('/userhome/')
+            if user.is_superuser:
+                return  HttpResponseRedirect('/dashbord/')
+            else:
+                return HttpResponseRedirect('/userhome/')
         else:
             messages.error(request, 'Invalid username or password. Please try again.')
 
     return render(request,'user/login.html')
 
+
+def password_reset_request(request):
+    if request.method == "POST":
+        password_reset_form = PasswordReset(request.POST)
+        if password_reset_form.is_valid():
+            data = password_reset_form.cleaned_data['email']
+            associated_users = User.objects.filter(email=data)
+            if associated_users.exists():
+                for user in associated_users:
+                    subject = "Password Reset Requested"
+                    email_template_name = "password_reset_email.html"
+                    c = {
+                        "email": user.email,
+                        'domain': request.get_host(),
+                        'site_name': 'Your Site',
+                        "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                        "user": user,
+                        'token': default_token_generator.make_token(user),
+                        'protocol': 'http',
+                    }
+                    email = render_to_string(email_template_name, c)
+                    send_mail(subject, email, settings.DEFAULT_FROM_EMAIL, [user.email], fail_silently=False)
+            return redirect("user/password_reset_done")
+    password_reset_form = PasswordResetForm()
+    return render(request, "user/password_reset_form.html", {"password_reset_form": password_reset_form})
+
+def password_reset_done(request):
+    return render(request, "user/password_reset_done.html")
+
+def password_reset_confirm(request, uidb64=None, token=None):
+    uid = force_text(urlsafe_base64_decode(uidb64))
+    user = get_object_or_404(User, pk=uid)
+
+    if default_token_generator.check_token(user, token):
+        if request.method == "POST":
+            form = SetPasswordForm(user, request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect("user/password_reset_complete")
+        else:
+            form = SetPasswordForm(user)
+    else:
+        form = None
+
+    return render(request, "password_reset_confirm.html", {"form": form})
+
+def password_reset_complete(request):
+    return render(request, "password_reset_complete.html")
 
 def roomproduct(request):
     return render(request,'admin/roomproduct.html')
