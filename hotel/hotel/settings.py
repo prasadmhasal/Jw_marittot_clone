@@ -74,26 +74,26 @@ WSGI_APPLICATION = 'hotel.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hotel',
-        'USER':'PrasadMhasal',
-        'PASSWORD':'root@123',
-        'HOST':'PrasadMhasal.mysql.pythonanywhere-services.com',
-        'PORT':'3306'
-    }
-}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'hotel',
-#         'USER':'root',
-#         'PASSWORD':'',
-#         'HOST':'localhost',
+#         'USER':'PrasadMhasal',
+#         'PASSWORD':'root@123',
+#         'HOST':'PrasadMhasal.mysql.pythonanywhere-services.com',
 #         'PORT':'3306'
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hotel',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':'3306'
+    }
+}
 
 
 # Password validation
@@ -137,11 +137,13 @@ MEDIA = 'media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 
 # settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'prasadmhasal@gmail.com'
 EMAIL_HOST_PASSWORD = 'ttcl tfoc xzwv nysj'
+DEFAULT_FROM_EMAIL = 'prasadmhasal@gmail.com'
 
 
 

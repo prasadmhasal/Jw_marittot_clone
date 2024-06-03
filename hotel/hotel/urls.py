@@ -57,10 +57,11 @@ urlpatterns = [
     path('roombookform/<int:id>/',views.Roombookform,name='roombookform'),
     path('bookingroom/<int:id>/',views.Bookingroom,name='bookingroom'),
     path('thankyou/',views.Thankyou,name='thankyou'),
-    path('password_reset/', views.password_reset_request, name='password_reset'),
-    path('password_reset/done/', views.password_reset_done, name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
-    path('reset/done/', views.password_reset_complete, name='password_reset_complete'),
+    path('reset_password/', views.password_reset_request, name='reset_password'),
+    path('reset_password_confirm/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
+    path('reset_password_complete/', views.password_reset_complete, name='password_reset_complete'),
+    path('password_reset_done/', views.password_reset_done, name='password_reset_done'),
+   
 
 ]
 urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
